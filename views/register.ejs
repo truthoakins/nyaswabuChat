@@ -1,0 +1,36 @@
+
+<div class="bg">
+    <div class="po">
+    <div class="container white party">
+        <div class="row">
+
+                <div class="col d-none d-md-block d-lg-block" style="padding: 0px;">
+                    <img class="img-fluid" style="min-width: 100%; min-height: 100%; border-radius: 5px 0px 0px 5px;"  src="images/form-v7.jpg" alt="form">
+                </div>
+                <div class="col">
+                    <form style="padding:0px 40px;" class="form-detail" action="/register" method="post">
+            
+                        <h2 style="margin-bottom: 10px;margin-top: 15px;">Join Chat</h2>
+                        <%- include ('./flash/flashsms') %>
+                        <div class="form-row">
+                            <input type="text" name="name" id="full-name" class="full-left" placeholder="First Name" required    value="<%= typeof name != 'undefined' ? name : '' %>"/>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="email" id="your-email" class="full-left" placeholder="Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" value="<%= typeof email != 'undefined' ? email : '' %>"/>
+                        </div>
+                        <div class="form-row">
+                            <input type="password" name="password" id="password" class="full-left" placeholder="Password" required value="<%= typeof password != 'undefined' ? password : '' %>"/>
+                        </div>
+                        <div class="form-row">
+                            <input type="password" name="password2" id="confirm-password" class="full-left" placeholder="Confirm Password" requiredvalue="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                        </div>
+                        <div class="form-row-last">
+                            <input type="submit" name="register" class="register" value="Register">
+                            <p style="color: #333;">Have an Account? <br><a href="/">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

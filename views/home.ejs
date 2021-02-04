@@ -1,0 +1,36 @@
+
+<div class="bg">
+    <div class="po">
+    <div class="container white party">
+        <div class="row">
+
+                <div class="col d-none d-md-block d-lg-block" style="padding: 0px;">
+                    <img class="img-fluid" style="min-width: 100%; min-height: 100%; border-radius: 5px 0px 0px 5px;"  src="images/form-v6.jpg" alt="form">
+                </div>
+                <div class="col">
+                    <form class="form-detail" action="/" method="post">
+                        <h2>Log in to Chat</h2>
+                        <%- include ('./flash/flashsms') %>
+                        <div class="form-row">
+                            <input type="text" name="email" id="your-email" class="input-text" placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"> 
+                            <!--
+                            <input type="text" name="email" id="your-email" class="input-text" placeholder="Your Name" required >-->
+                        </div>
+                        <div class="form-row">
+                            <input type="password" name="password" id="your-password" class="input-text" placeholder="Password" required>
+                            <!--
+                            <input type="text" name="room" id="your-room" class="input-text" placeholder="Room" required>-->
+                        </div>
+                        <div class="form-row-last">
+                            <input type="submit" name="login" class="register" value="Login">
+                        </div>
+                        <div class="form-row-last">
+                            <p style="color: #333;">Don't have an Account? <br><a href="/register">Sign Up</a></p>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   

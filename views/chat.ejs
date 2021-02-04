@@ -1,0 +1,117 @@
+<div class="place">
+    <div class="container areazone">
+      <div class="row">
+      <div class="col-md-4 box1 d-none d-md-block d-lg-block">
+        <div class="serio2">
+        <p style="    color:green; display: flex; font-weight: bold;padding: 15px; font-size: 20px;">Online Users</p>
+               
+        </div> 
+            <div id="inboxchat" class="inbox_chat">    
+     
+            </div>
+      </div>
+      <div class="col-md-8 box">
+        <div class="serio2">
+          <div></div>
+          <img src="images/uploads/<%= user.profilePic %>"> <span id="profileImage" class="d-none"><%= user.profilePic %></span>
+          <div class="icons">
+            <span id="handle"><%= user.name %></span>
+            <span style="padding-top: 15px;font-weight: 500;display: none;" id="emailhandle"><%= user.email %></span>
+            <p id="roomMember"></p>
+            <span id="roomSection" style="color: black;"></span>
+                </div>
+                <div id="imageZone" style="float:right;padding: 15px 5px 0 5px; font-weight: bold;">
+                  <button style="font-size: small; margin-left: 25px;" type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Profile Pic
+                  </button>
+                   <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="form-inline" action="/profile" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+              <div class="form-group">
+               
+            <input name="profileImage" type="file" class="form-control-plaintext" id="profileImage"  required>
+            <input name="email" type="text" class="d-none" id="profilemail" value="<%= user.email %>"  required>
+          </div>
+            
+          </div>
+          <dcleariv class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Upload</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+                <a class="col float-right" href="/logout">
+                  <span id="logout"><i style="float:right;padding: 20px 5px 0 5px; color: green; font-weight: bold;" class="fa fa-sign-out" aria-hidden="true">Logout </i></span>
+                </a>
+               
+        </div>
+        <%- include ('./flash/flashsms') %>
+          <div class="smsArea">
+            <div id="messages" style="list-style-type:none;transform: rotate(180deg);
+            direction: ltr;">
+            <%var kkk=user.email%>
+              <% for(var i=0; i< result.length; i++) {%>
+                    <% if (result[i].email == kkk ){%>
+                      <div class="row">
+                        <div class="col">
+                          <div class="sender">
+                            <span class="nme"><b><%=result[i].name%></b></span>
+                    <div class="message-text"><%=result[i].sms%></div> 
+                    <span class="message-time pull-right"> <%=result[i].date.toLocaleString('en-US')%> </span>
+                               </div> 
+                        </div>
+            </div>
+                                       <%}else{%>
+                                        <div class="row">
+                                          <div class="receiver">
+                                                  <span class="nme"><b><%=result[i].name%></b></span>
+               <div class="message-text"><%=result[i].sms%></div> 
+               <span class="message-time pull-right"> <%=result[i].date.toLocaleString('en-US')%> </span>
+                                      </div></div>
+                                            <% } %>
+                                     <% } %>
+     
+            </div>
+            
+       
+
+
+     </div>
+     <form id="smsForm" action=""  method="post" class="p-3">
+      <div class="input-group mb-2 mt-2">
+        <input id="m" name="sms" required  autocomplete="off"  type="text" class="form-control" placeholder="Type a message" >
+        <input id="email" value="<%= user.email %>" style="display: none;">
+        <div class="input-group-append">
+          <button id="sendSms" class="btn btn-primary btn-sm"><i class="fa fa-send" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      
+    </form>
+     <!--
+     <form id="smsForm" action="" method="post">
+     <div class="serio3">
+     <input id="m" name="sms" style=" width: 90%;outline: none;margin-left: 10px;border: none;"   required  autocomplete="off" type="text" placeholder="Type a message">
+       <input id="email" value="<%= user.email %>" style="display: none;">
+        <div class="col-sm-1 col-xs-1 reply-send">
+          <button id="sendSms" ><i class="fa fa-send  fa-2x" aria-hidden="true"></i></button>
+        </div>
+     
+       </div>
+      </form>-->
+
+  </div>
+      </div>
+    </div>
+  </div>
+    </div>
