@@ -15,6 +15,7 @@ const {userJoin,getCurrentUser,userLeave,getRoomUsers} = require('./utils/users'
 require("./auth/passport")(passport);
 const connections =[];
 const members=[];
+var PORT = process.env.PORT || 3200;
 
 
 //mongoose
@@ -149,6 +150,6 @@ io.to(user.room).emit('roomUsers',{room:user.room, users:getRoomUsers(user.room)
 
 
  //listen to server connection
- http.listen(3000, ()=>{
-     console.log('Express is running on 3000...')
+ http.listen(PORT, ()=>{
+     console.log('Express is running on 3200...')
  }); 
